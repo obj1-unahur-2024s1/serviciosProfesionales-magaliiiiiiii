@@ -1,0 +1,45 @@
+import profesionales.*
+import empresas.*
+import universidad.*
+
+describe "Test de Profesionales"{
+	const sm= new Universidad(provincia="Buenos AIres", honorariosRecomendados=3500 ) 
+	const ro= new Universidad(provincia="Santa Fe", honorariosRecomendados=2800 )
+	const co= new Universidad(provincia="Corrientes",honorariosRecomendados=4200 )
+	const hm= new Universidad(provincia="buenos Aires ",honorariosRecomendados=8800 ) 	
+	 
+	const juana= new ProfesionalVinculado(universidad=ro)
+	const melina= new ProfesionalAsociado(universidad=co)
+	//const rocio= new ProfesionalLibre(honorario=5000,universidad=hm , provincias=*{"Santa Fe", "Cordoba", "Buenos Aires" }) 
+	//const lucia= new ProfesionalLibre(honorario=3200, universidad= ro, provincias=*{"Santa Fe", "Entre Rios"})
+	// hay un error en la creación de esas dos instancias y no entiendo cúal
+
+	const empresa1= new Empresa(honorarioDeReferencia= 3500)
+	
+	method initialize(){
+	  empresa1.agregarUnProfesional(juana)
+	  empresa1.agregarUnProfesional(melina)
+	  empresa1.agregarUnProfesional(rocio)
+	  empresa1.agregarUnProfesional(lucia)
+		
+	}
+	test "cuantos estudiaron en Rosario"{
+		assert.equals(2, empresa1.cuantosEstudiaronEn(ro))
+		
+	}
+	test "cuantos estudiaron en Hurligham"{
+		assert.equals(1, empresa1.cuantosEstudiaronEn(hm))}
+	
+	test"cuantos estudiaron en San Martin"{
+		assert.equals(0, empresa1.cuantosestudiaronEn(sm))}
+		
+	test"cuantos estudiaron en Corrientes"{
+		assert.equals(1, empresa1.cuantosestudiaronEn(co))}
+		
+	test "profesionales caros"{ //hay que comparar con un conjunto
+		assert.equals({rocio}, empresa1.caros()
+	}  
+	
+}
+
+

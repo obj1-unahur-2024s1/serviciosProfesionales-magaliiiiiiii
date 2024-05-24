@@ -1,29 +1,35 @@
+import universidad.*
 // esta clase está completa, no necesita nada más
 class ProfesionalAsociado {
-	var universidad
+	var property universidad
 	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
-	
-	method provinciasDondePuedeTrabajar() { return #{"Entre Ríos", "Corrientes", "Santa Fe"} }
 	
 	method honorariosPorHora() { return 3000 }
+	method honorario()=universidad.honorariosRecomendados()
+	
+	method provincias()=#{universidad.provincia()}  // el valor que devuelve debe ser un conjunto porque así está definido en la clase Profesional Asociado
+
 }
 
 
 // a esta clase le faltan métodos
 class ProfesionalVinculado {
-	var universidad
+	const property universidad
+	var property honorario=3000   //para que haya polimorfismo con profesional asociado
+   method provincias()=#{"Entre Ríos", "Corrientes", "Santa Fe"}
+    // ojo que aparte de que sea polimorficos tienen que devolver el mismo "tipo"
+   	// si en un objeto es un conjunto, en los demas tambien
 	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
 }
-
-
-// a esta clase le faltan atributos y métodos
+ 
 class ProfesionalLibre {
-	var universidad
+	const property universidad
+	const property provincias=#{}   //para que sea un conjunto y no se repitan los lugares. Un profesional seguro q pueda trabajar en mas de un lugar a la vez, por eso es una variable conjuntos
+	var property honorario
 	
-	method universidad() { return universidad }
-	method universidad(univ) { universidad = univ }
+	method agregarProvincia(unaProv)=provincias.add(unaProv)
+	method quitarProvincia(unaProvincia)= provincias.remove(unaProvincia)
+	method clearProvincias()= provincias.clear() 
+	
+	
 }
