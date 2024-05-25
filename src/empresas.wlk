@@ -1,5 +1,6 @@
 import profesionales.*
-
+import solicitante.*
+import universidad.*
 class Empresa {
 	
  const property profesionales=[] // quizo hacerlo lista para cmabiar un poco, y para podee tener varios del mismo tipo	
@@ -26,7 +27,7 @@ class Empresa {
 method esDeGenteACotadaAll() { profesionales.all({p => p.provincias().size() <= 3})} // porque dice al menos, entonces va el =
 // tambien se puede escribir con any, es lo mismo que lo de arriba pero con any
 //method esDeGenteACotadaAny(){ not profesionales.any({p=> p.provincia().size()>3 }) 
-	
+method puedeSatifacer(unSolicitante){ return self.profesionales().any{x=>unSolicitante.puedeSerAtendidoPor(x)}}	
 }	
 
 

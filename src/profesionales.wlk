@@ -6,7 +6,8 @@ class ProfesionalAsociado {
 	
 	method honorariosPorHora() { return 3000 }
 	method honorario()=universidad.honorariosRecomendados()
-	
+	// recibe:-
+	// retorna:un Conjunto
 	method provincias()=#{universidad.provincia()}  // el valor que devuelve debe ser un conjunto porque así está definido en la clase Profesional Asociado
 
 }
@@ -30,6 +31,4 @@ class ProfesionalLibre {
 	method agregarProvincia(unaProv)=provincias.add(unaProv)
 	method quitarProvincia(unaProvincia)= provincias.remove(unaProvincia)
 	method clearProvincias()= provincias.clear() 
-	
-	
 }

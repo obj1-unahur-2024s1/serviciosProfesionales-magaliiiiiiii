@@ -31,13 +31,13 @@ describe "Test de Profesionales"{
 		assert.equals(1, empresa1.cuantosEstudiaronEn(hm))}
 	
 	test"cuantos estudiaron en San Martin"{
-		assert.equals(0, empresa1.cuantosestudiaronEn(sm))}
+		assert.equals(0, empresa1.cuantosEstudiaronEn(sm))}
 		
 	test"cuantos estudiaron en Corrientes"{
-		assert.equals(1, empresa1.cuantosestudiaronEn(co))}
+		assert.equals(1, empresa1.cuantosEstudiaronEn(co))}
 		
 	test "profesionales caros"{ //hay que comparar con un conjunto
-		assert.equals(#{rocio}, empresa1.caros())}
+		assert.equals(#{rocio, melina}, empresa1.caros())}
 }	
 
 
